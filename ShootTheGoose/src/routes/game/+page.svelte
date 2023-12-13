@@ -4,14 +4,20 @@
 
 	let isShooting = false;
 	let isShootingText = false;
+
 	let randomPosition = getRandomPosition();
+
 	let left = randomPosition.x + 'px';
 	let top = randomPosition.y + 'px';
 
+	const audio = new Audio('/sounds/oie.mp3');
+
 	function handleShoot() {
 		isShooting = true;
+		audio.play();
 		setTimeout(() => {
 			isShootingText = true;
+
 			setTimeout(() => {
 				isShootingText = false;
 				randomPosition = getRandomPosition();
@@ -65,13 +71,20 @@
 
 <button
 	style="z-index: 1; position: absolute;"
+	class="animal-container"
+	style:left
+	style:top
 	on:click={handleShoot}
 	on:mousemove={handleMouseMove}
 	disabled={isShooting}
-	style:left
-	style:top
 >
-	<div class="animal-container">
-		<Animal baseNameForUrl="oie_vol" dammage={isShooting} />
-	</div>
+	<Animal baseNameForUrl="oie_vol" dammage={isShooting} />
 </button>
+
+<style>
+	.animal-container {
+		transition:
+			left 0.5s ease,
+			top 0.5s ease;
+	}
+</style>
