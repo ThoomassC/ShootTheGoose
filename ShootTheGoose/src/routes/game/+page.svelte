@@ -1,6 +1,6 @@
-<script>
+<script lang="ts">
 	import Animal from '$lib/components/Animal.svelte';
-
+  
 	let isShooting = false;
 	let isShootingText = false;
 	let randomPosition = getRandomPosition();
@@ -25,18 +25,28 @@
 </script>
 
 <div class="relative">
-	<h1
-		class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-black"
-	>
-		Shoot the Goose !
-	</h1>
+    <div class="flex items-center justify-center">
+        <h1
+            style="font-size: 40px; font-weight: bold;"
+        >
+            Shoot the Goose !
+        </h1>
+    </div>
+
+    <a href="../">
+        <button
+            class="ml-4 align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-full max-w-[150px] h-10 max-h-[90px] rounded-lg text-xs bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+            type="button">
+            {"<- -  "} Quitter la partie
+        </button>
+    </a>
 
 	{#if isShootingText}
 		<p class="text-red-500">Vous avez tiré sur une oie !</p>
 	{/if}
 
 	<button
-		style="z-index: 1; position: absolute; left: {randomPosition.x}px; top: {randomPosition.y}px;"
+		style="z-index: 1; position: absolute; left: {randomPosition.x}px; top: {randomPosition.y}px;" 
 		on:click={handleShoot}
 		disabled={isShooting}
 	>
