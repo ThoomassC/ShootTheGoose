@@ -1,17 +1,8 @@
 <script lang="ts">
 	export let baseNameForUrl: string;
-	export let damage: boolean;
-
-	let health = 1;
-
-	function handleHit() {
-		if (damage) {
-			health = 0;
-			health = health;
-		}
-	}
+	export let dammage: boolean;
 </script>
 
-{#if health !== 0}
-	<img src="/images/{baseNameForUrl}.png" on:click={handleHit} />
+{#if !dammage}
+	<img src="/images/{baseNameForUrl}.png" />
 {/if}
