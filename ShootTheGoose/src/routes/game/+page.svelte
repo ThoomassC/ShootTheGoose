@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Animal from '$lib/components/Animal.svelte';
+	import { onDestroy } from 'svelte';
 
 	let isShooting = false;
 	let isShootingText = false;
@@ -64,6 +65,7 @@
 	>
 		Shoot the Goose !
 	</h1>
+</div>
 <div class="overflow-hidden">
 	<div class="flex items-center justify-center">
         <h1 style="font-size: 90px; font-weight: bold;">Shoot The Goose</h1>
