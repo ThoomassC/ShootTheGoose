@@ -5,7 +5,8 @@
 
 	let isShooting = false;
 	let isShootingText = false;
-
+	let livesCounts: number;
+	$: livesCounts;
 	let randomPosition = getRandomPosition();
 
 	let left = randomPosition.x + 'px';
@@ -81,7 +82,7 @@
 >
 	<Animal baseNameForUrl="oie_vol" dammage={isShooting} />
 </button>
-<Life></Life>
+<Life bind:actualLifes={livesCounts}></Life>
 
 <style>
 	.animal-container {

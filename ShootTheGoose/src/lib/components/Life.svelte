@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { createEventDispatcher } from 'svelte';
 	const dispatch = createEventDispatcher();
-
 	export const lifesToBeginWith = 3;
 	export let actualLifes: number = lifesToBeginWith;
 	$: actualLifes;
