@@ -1,6 +1,5 @@
 <script lang="ts">
 	export let baseNameForUrl: string;
-	export let dammage: boolean;
 
 	let isShooting = false;
 	let isShootingText = false;
@@ -54,12 +53,12 @@
 	}, 2000);
 
 	// Nettoyer l'intervalle lorsque le composant est détruit
-	onDestroy(() => {
-		clearInterval(moveInterval);
-	});
+	// onDestroy(() => {
+	// 	clearInterval(moveInterval);
+	// });
 </script>
 
-{#if !dammage}
+{#if !isShooting}
 	<button
 		style="position: absolute;"
 		class="animal-container"
@@ -72,3 +71,10 @@
 		<img src="/images/{baseNameForUrl}.png" class="w-20 h-20" />
 	</button>
 {/if}
+<style>
+	.animal-container {
+		transition:
+			left 0.5s ease,
+			top 0.5s ease;
+	}
+</style>
