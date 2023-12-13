@@ -37,7 +37,7 @@
 		top = randomPosition.y + 'px';
 	}
 
-	function handleMouseMove(event) {
+	function handleMouseMove(event: any) {
 		const isMouseOverAnimal = event.target && event.target.closest('.animal-container') !== null;
 
 		if (!isShooting && !isMouseOverAnimal) {
