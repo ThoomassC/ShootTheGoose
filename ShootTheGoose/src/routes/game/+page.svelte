@@ -10,9 +10,6 @@
 	let left = randomPosition.x + 'px';
 	let top = randomPosition.y + 'px';
 
-	let left = randomPosition.x + 'px';
-	let top = randomPosition.y + 'px';
-
 	const audio = new Audio('/sounds/oie.mp3');
 
 	function handleShoot() {
@@ -71,9 +68,9 @@
 </div>
 <div class="overflow-hidden">
 	<div class="flex items-center justify-center">
-        <h1 style="font-size: 90px; font-weight: bold;">Shoot The Goose</h1>
-    </div>
-	
+		<h1 style="font-size: 90px; font-weight: bold;">Shoot The Goose</h1>
+	</div>
+
 	<button
 		style="position: absolute;"
 		class="animal-container"
@@ -81,19 +78,19 @@
 		style:top
 		on:click={handleShoot}
 		on:mousemove={handleMouseMove}
-		disabled={isShooting}>
-		
+		disabled={isShooting}
+	>
 		<Animal baseNameForUrl="oie_vol" dammage={isShooting} />
-	</div>
-</button>
-
-    <a href="../">
-        <button
-            class="ml-4 align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-full max-w-[150px] h-10 max-h-[90px] rounded-lg text-xs bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
-            type="button">
-            {"<- -  "} Quitter la partie
-        </button>
-    </a>
+	</button>
+</div>
+<a href="../">
+	<button
+		class="ml-4 align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-full max-w-[150px] h-10 max-h-[90px] rounded-lg text-xs bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+		type="button"
+	>
+		{'<- -  '} Quitter la partie
+	</button>
+</a>
 
 <button
 	style="z-index: 1; position: absolute;"
@@ -110,7 +107,7 @@
 <style>
 	.animal-container {
 		transition:
-		left 0.5s ease,
-		top 0.5s ease;
+			left 0.5s ease,
+			top 0.5s ease;
 	}
 </style>
