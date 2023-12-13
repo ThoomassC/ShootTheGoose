@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Animal from '$lib/components/Animal.svelte';
 	import { onDestroy } from 'svelte';
+	import Life from '$lib/components/Life.svelte';
 
 	let isShooting = false;
 	let isShootingText = false;
@@ -38,7 +39,7 @@
 		top = randomPosition.y + 'px';
 	}
 
-	function handleMouseMove(event: any) {
+	function handleMouseMove(event) {
 		const isMouseOverAnimal = event.target && event.target.closest('.animal-container') !== null;
 
 		if (!isShooting && !isMouseOverAnimal) {
@@ -80,6 +81,7 @@
 >
 	<Animal baseNameForUrl="oie_vol" dammage={isShooting} />
 </button>
+<Life></Life>
 
 <style>
 	.animal-container {
