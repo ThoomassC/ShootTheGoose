@@ -6,6 +6,7 @@
 	let isShootingText = false;
 
 	let randomPosition = getRandomPosition();
+
 	let left = randomPosition.x + 'px';
 	let top = randomPosition.y + 'px';
 
