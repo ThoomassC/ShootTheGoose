@@ -64,6 +64,23 @@
 	>
 		Shoot the Goose !
 	</h1>
+<div class="overflow-hidden">
+	<div class="flex items-center justify-center">
+        <h1 style="font-size: 90px; font-weight: bold;">Shoot The Goose</h1>
+    </div>
+	
+	<button
+		style="position: absolute;"
+		class="animal-container"
+		style:left
+		style:top
+		on:click={handleShoot}
+		on:mousemove={handleMouseMove}
+		disabled={isShooting}>
+		
+		<Animal baseNameForUrl="oie_vol" dammage={isShooting} />
+	</button>
+</div>
 
     <a href="../">
         <button
@@ -72,10 +89,6 @@
             {"<- -  "} Quitter la partie
         </button>
     </a>
-
-	{#if isShootingText}
-		<p class="text-red-500">Vous avez tiré sur une oie !</p>
-	{/if}
 
 <button
 	style="z-index: 1; position: absolute;"
@@ -92,7 +105,7 @@
 <style>
 	.animal-container {
 		transition:
-			left 0.5s ease,
-			top 0.5s ease;
+		left 0.5s ease,
+		top 0.5s ease;
 	}
 </style>
