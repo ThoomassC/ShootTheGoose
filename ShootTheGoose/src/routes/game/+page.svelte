@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Animal from '$lib/components/Animal.svelte';
 	import { onDestroy } from 'svelte';
+	import Life from '$lib/components/Life.svelte';
 
 	let isShooting = false;
 	let isShootingText = false;
@@ -38,7 +39,7 @@
 		top = randomPosition.y + 'px';
 	}
 
-	function handleMouseMove(event: any) {
+	function handleMouseMove(event) {
 		const isMouseOverAnimal = event.target && event.target.closest('.animal-container') !== null;
 
 		if (!isShooting && !isMouseOverAnimal) {
@@ -59,15 +60,31 @@
 	});
 </script>
 
-<h1
-	class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-black"
->
-	Shoot the Goose !
-</h1>
+<div class="overflow-hidden">
+	<div class="flex items-center justify-center">
+		<h1 style="font-size: 90px; font-weight: bold;">Shoot The Goose</h1>
+	</div>
 
-{#if isShootingText}
-	<p class="text-red-500">Vous avez tiré sur une oie !</p>
-{/if}
+	<button
+		style="position: absolute;"
+		class="animal-container"
+		style:left
+		style:top
+		on:click={handleShoot}
+		on:mousemove={handleMouseMove}
+		disabled={isShooting}
+	>
+		<Animal baseNameForUrl="oie_vol" dammage={isShooting} />
+	</button>
+</div>
+<a href="../">
+	<button
+		class="ml-4 align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-full max-w-[150px] h-10 max-h-[90px] rounded-lg text-xs bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none"
+		type="button"
+	>
+		{'<- -  '} Quitter la partie
+	</button>
+</a>
 
 <button
 	style="z-index: 1; position: absolute;"
@@ -80,6 +97,7 @@
 >
 	<Animal baseNameForUrl="oie_vol" dammage={isShooting} />
 </button>
+<Life></Life>
 
 <style>
 	.animal-container {
