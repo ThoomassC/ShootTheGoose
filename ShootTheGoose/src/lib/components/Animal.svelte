@@ -4,5 +4,5 @@
 </script>
 
 {#if !dammage}
-	<img src="/images/{baseNameForUrl}.png" />
+	<img src="/images/{baseNameForUrl}.png" class="w-20 h-20" />
 {/if}
