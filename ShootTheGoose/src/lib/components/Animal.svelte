@@ -7,6 +7,7 @@
 	function handleHit() {
 		if (damage) {
 			health = 0;
+			health = health;
 		}
 	}
 </script>
