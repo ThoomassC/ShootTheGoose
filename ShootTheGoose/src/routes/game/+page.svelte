@@ -6,6 +6,8 @@
 	let isShootingText = false;
 
 	let randomPosition = getRandomPosition();
+	let left = randomPosition.x + 'px';
+	let top = randomPosition.y + 'px';
 
 	let left = randomPosition.x + 'px';
 	let top = randomPosition.y + 'px';
@@ -81,8 +83,8 @@
 		disabled={isShooting}>
 		
 		<Animal baseNameForUrl="oie_vol" dammage={isShooting} />
-	</button>
-</div>
+	</div>
+</button>
 
     <a href="../">
         <button
