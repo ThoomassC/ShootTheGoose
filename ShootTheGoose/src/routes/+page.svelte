@@ -1,4 +1,4 @@
-<header>
+<div class="bg-ground-pattern" style="background-size: 100% 100%; background-attachment: fixed; background-repeat: no-repeat; margin: 0; background-position: center; ">
     <div class="flex items-center justify-center">
         <h1 style="font-size: 90px; font-weight: bold;">
             Shoot The Goose
