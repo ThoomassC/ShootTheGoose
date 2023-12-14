@@ -1,5 +1,7 @@
-<header>  
-    <div class="flex items-center justify-center">
+<script></script>
+
+<header>
+    <div class="cursor-default flex items-center justify-center">
         <h1 style="font-size: 90px; font-weight: bold;">
             Shoot The Goose
         </h1>
@@ -18,4 +20,9 @@
     </div>    
 </body>
     
-
+<style>
+    :global(body){
+        /* cursor: url('images/target.cur'), default; */
+        cursor: crosshair;
+    }
+</style>

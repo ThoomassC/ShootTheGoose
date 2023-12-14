@@ -26,7 +26,8 @@
 
 <div class="overflow-hidden">
 	<div class="flex items-center justify-center">
-		<h1 style="font-size: 90px; font-weight: bold;">Shoot The Goose</h1>
+		<h1 style="font-size: 60px; font-weight: bold;">Shoot The Goose</h1>
+<div class="custom-cursor h-screen">
 	</div>
 	{#each animals as { type, score, src }}
 		<Animal {type} {score} {src} />

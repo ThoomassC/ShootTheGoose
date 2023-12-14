@@ -51,8 +51,8 @@
 
 {#if !isShooting}
 	<button
-		style="position: absolute;"
-		class="animal-container"
+		style="position: absolute; user-select: none;"
+		class="animal-container custom-cursor"
 		style:left
 		style:top
 		on:click={handleShoot}
@@ -69,4 +69,9 @@
 			left 0.5s ease,
 			top 0.5s ease;
 	}
+
+	.custom-cursor {
+		cursor: crosshair;
+    	/* cursor: url('/images/viseur.cur'), auto; */
+  }
 </style>
