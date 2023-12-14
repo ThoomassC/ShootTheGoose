@@ -1,14 +1,12 @@
 <script lang="ts">
-	import { createEventDispatcher } from 'svelte';
-	const dispatch = createEventDispatcher();
-
 	export const lifesToBeginWith = 3;
 	export let actualLifes: number = lifesToBeginWith;
-	$: actualLifes;
-	export const miss = () => {
-		--actualLifes;
-		dispatch('heart', { actualLifes });
-	};
+	export let isMissed: boolean = false;
+
+	$: if (actualLifes > 0 && isMissed === true) {
+		actualLifes -= 1;
+		isMissed = false;
+	}
 </script>
 
 <div
