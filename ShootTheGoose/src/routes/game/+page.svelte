@@ -1,7 +1,8 @@
 <script lang="ts">
-	import Animal from '$lib/components/Animal.svelte';
 	import { onDestroy } from 'svelte';
+	import Animal from '$lib/components/Animal.svelte';
 	import Life from '$lib/components/Life.svelte';
+	import Score from '$lib/components/Score.svelte';
 
 	let isShooting = false;
 	let isShootingText = false;
@@ -13,9 +14,17 @@
 
 	const audio = new Audio('/sounds/oie.mp3');
 
+	let hearts: number;
+	let shot: number = 0;
+	let score: number = 0;
+	const pointIncrement: number = 100;
+	let isMissed: boolean = false;
+
 	function handleShoot() {
 		isShooting = true;
 		audio.play();
+		shot++;
+		console.log(shot);
 		setTimeout(() => {
 			isShootingText = true;
 
@@ -97,7 +106,8 @@
 >
 	<Animal baseNameForUrl="oie_vol" dammage={isShooting} />
 </button>
-<Life></Life>
+<Life bind:actualLifes={hearts} {isMissed}></Life>
+<Score bind:actualScore={score} {shot} {pointIncrement}></Score>
 
 <style>
 	.animal-container {
