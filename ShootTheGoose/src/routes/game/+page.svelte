@@ -9,18 +9,22 @@
 	};
 
 	//TODO: à gérer en fonction du score
-	let extraterrestre = {
-		type: 'extraterrestre',
+	let ufo = {
+		type: 'ufo',
 		score: 3,
-		src: 'oie_vol.png'
+		src: 'ufo.png'
 	};
 
 	let animals: any[] = [];
 
+	if (animals.length === 0) {
+		animals.push(canard, canard, canard);
+	}
+
 	setInterval(() => {
 		animals.push(canard);
 		animals = animals;
-	}, 2000);
+	}, 3000);
 </script>
 
 <div class="overflow-hidden">
