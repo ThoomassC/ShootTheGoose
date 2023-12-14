@@ -1,12 +1,6 @@
 <script lang="ts">
-	const begin = 0;
-	export let actualScore: number = begin;
-	export let shot: number;
-	export let pointIncrement: number;
-
-	$: if (shot > 0) {
-		actualScore += pointIncrement;
-	}
+	export let actualScore: number;
+	$: actualScore;
 </script>
 
-<h1 class="text-2xl font-extrabold text-white">{actualScore}</h1>
+<h1 class="text-2xl font-normal text-white">{actualScore}</h1>

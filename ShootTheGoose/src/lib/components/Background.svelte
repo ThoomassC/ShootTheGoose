@@ -2,4 +2,5 @@
 	export let baseNameForUrl: string;
 </script>
 
-<img src="/images/{baseNameForUrl}.png" />
+<img src="/images/{baseNameForUrl}" alt="" />
+<slot />
