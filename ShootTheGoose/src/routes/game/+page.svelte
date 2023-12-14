@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { onDestroy } from 'svelte';
 	import Animal from '$lib/components/Animal.svelte';
 	import Life from '$lib/components/Life.svelte';
 	import FormPlayer from '$lib/components/FormPlayer.svelte';
