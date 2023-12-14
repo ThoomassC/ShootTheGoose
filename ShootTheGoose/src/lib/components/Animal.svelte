@@ -20,7 +20,7 @@
 	function getRandomPosition() {
 		const positionX = Math.floor(Math.random() * (window.innerWidth - 100));
 		const positionY = Math.floor(Math.random() * (window.innerHeight - 100));
-
+		
 		return { x: positionX, y: positionY };
 	}
 
