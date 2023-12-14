@@ -1,7 +1,25 @@
 <script lang="ts">
 	import Animal from '$lib/components/Animal.svelte';
-	import { onDestroy } from 'svelte';
 	import Life from '$lib/components/Life.svelte';
+	import { isVeganMod } from '../store';
+
+	let isVeganMod_value;
+	let imageType = "";
+	let soundType = "";
+
+	isVeganMod.subscribe((value) => {
+		isVeganMod_value = value;
+	});
+
+	if (isVeganMod_value === false){
+		imageType = "oie_vol";
+		soundType = "oie";
+	}
+	else{
+		imageType = "elmer";
+		soundType = "elmer";
+	}
+	console.log(isVeganMod_value);
 </script>
 
 <div class="overflow-hidden">
@@ -9,7 +27,7 @@
 		<h1 style="font-size: 90px; font-weight: bold;">Shoot The Goose</h1>
 	</div>
 	
-	<Animal baseNameForUrl="oie_vol" />
+	<Animal baseNameForUrl={imageType} typeSound={soundType} />
 </div>
 <a href="../">
 	<button

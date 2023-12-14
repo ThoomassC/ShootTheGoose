@@ -1,5 +1,6 @@
 <script lang="ts">
 	export let baseNameForUrl: string;
+	export let typeSound: string;
 
 	let isShooting = false;
 	let isShootingText = false;
@@ -9,7 +10,7 @@
 	let left = randomPosition.x + 'px';
 	let top = randomPosition.y + 'px';
 
-	const audio = new Audio('/sounds/oie.mp3');
+	const audio = new Audio('/sounds/' + typeSound + '.mp3');
 
 	function handleShoot() {
 		isShooting = true;
@@ -69,6 +70,7 @@
 		disabled={isShooting}>
 		
 		<img src="/images/{baseNameForUrl}.png" class="w-20 h-20" />
+		
 	</button>
 {/if}
 <style>
