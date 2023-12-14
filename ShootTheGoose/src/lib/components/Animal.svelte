@@ -1,8 +1,9 @@
 <script lang="ts">
-	export let baseNameForUrl: string;
+	export let type: string;
+	export let src: string;
+	export let score: number;
 
 	let isShooting = false;
-	let isShootingText = false;
 
 	let randomPosition = getRandomPosition();
 
@@ -15,20 +16,15 @@
 		isShooting = true;
 		audio.play();
 		setTimeout(() => {
-			isShootingText = true;
-
-			setTimeout(() => {
-				isShootingText = false;
-				randomPosition = getRandomPosition();
-				updateButtonStyle();
-			}, 1000);
+			randomPosition = getRandomPosition();
+			updateButtonStyle();
 		}, 1000);
 	}
 
 	function getRandomPosition() {
 		const positionX = Math.floor(Math.random() * (window.innerWidth - 100));
 		const positionY = Math.floor(Math.random() * (window.innerHeight - 100));
-		
+
 		return { x: positionX, y: positionY };
 	}
 
@@ -37,7 +33,7 @@
 		top = randomPosition.y + 'px';
 	}
 
-	function handleMouseMove(event) {
+	function handleMouseMove(event: any) {
 		const isMouseOverAnimal = event.target && event.target.closest('.animal-container') !== null;
 
 		if (!isShooting && !isMouseOverAnimal) {
@@ -46,16 +42,11 @@
 		}
 	}
 
-	// Déplacer l'oie aléatoirement toutes les 2 secondes (ou tout autre intervalle souhaité)
-	const moveInterval = setInterval(() => {
+	// TODO: Déplacer l'oie aléatoirement toutes les 2 secondes (et augmente en fonction du score)
+	setInterval(() => {
 		randomPosition = getRandomPosition();
 		updateButtonStyle();
-	}, 2000);
-
-	// Nettoyer l'intervalle lorsque le composant est détruit
-	// onDestroy(() => {
-	// 	clearInterval(moveInterval);
-	// });
+	}, 1500);
 </script>
 
 {#if !isShooting}
@@ -66,11 +57,12 @@
 		style:top
 		on:click={handleShoot}
 		on:mousemove={handleMouseMove}
-		disabled={isShooting}>
-		
-		<img src="/images/{baseNameForUrl}.png" class="w-20 h-20" />
+		disabled={isShooting}
+	>
+		<img src={`/images/${src}`} class="w-28 h-24" alt={type} />
 	</button>
 {/if}
+
 <style>
 	.animal-container {
 		transition:
