@@ -101,7 +101,7 @@
 	}, 1000);
 </script>
 
-<div class="h-screen user-select: none">
+<div class="h-screen select-none">
 	<div class="flex justify-screen w-full items-center justify-between">
 		<button
 			on:click={leaveGame}
