@@ -1,29 +1,21 @@
 <script lang="ts">
-	export let type: string;
-	export let src: string;
-	export let score: number;
+	import { createEventDispatcher } from 'svelte';
 
-	let isShooting = false;
+	export let animal: {
+		type: string;
+		src: string;
+		score: number;
+		left: number;
+		top: number;
+	};
+
+	const dispatch = createEventDispatcher();
 
 	let randomPosition = getRandomPosition();
-
-	let left = randomPosition.x + 'px';
-	let top = randomPosition.y + 'px';
+	animal.left = randomPosition.x + 'px';
+	animal.top = randomPosition.y + 'px';
 
 	const audio = new Audio('/sounds/oie.mp3');
-
-	function handleShoot() {
-		isShooting = true;
-		audio.play();
-		score += pointIncrement;
-		setTimeout(() => {
-			randomPosition = getRandomPosition();
-			updateButtonStyle();
-		}, 1000);
-
-		switchTheme();
-		isFinish = !isFinish;
-	}
 
 	function getRandomPosition() {
 		const positionX = Math.floor(Math.random() * (window.innerWidth - 100));
@@ -32,40 +24,39 @@
 		return { x: positionX, y: positionY };
 	}
 
-	function updateButtonStyle() {
-		left = randomPosition.x + 'px';
-		top = randomPosition.y + 'px';
+	function onClick() {
+		audio.play();
+		dispatch('die', {
+			animal: animal
+		});
 	}
 
-	function handleMouseMove(event: any) {
-		const isMouseOverAnimal = event.target && event.target.closest('.animal-container') !== null;
+	// function handleMouseMove(event: any) {
+	// 	const isMouseOverAnimal = event.target && event.target.closest('.animal-container') !== null;
 
-		if (!isShooting && !isMouseOverAnimal) {
-			randomPosition = { x: event.clientX, y: event.clientY };
-			updateButtonStyle();
-		}
-	}
+	// 	if (!isMouseOverAnimal) {
+	// 		randomPosition = { x: event.clientX, y: event.clientY };
+	// 		updateButtonStyle();
+	// 	}
+	// }
 
 	// TODO: Déplacer l'oie aléatoirement toutes les 2 secondes (et augmente en fonction du score)
 	setInterval(() => {
 		randomPosition = getRandomPosition();
-		updateButtonStyle();
+		animal.left = randomPosition.x + 'px';
+		animal.top = randomPosition.y + 'px';
 	}, 1500);
 </script>
 
-{#if !isShooting}
-	<button
-		style="position: absolute; user-select: none;"
-		class="animal-container custom-cursor"
-		style:left
-		style:top
-		on:click={handleShoot}
-		on:mousemove={handleMouseMove}
-		disabled={isShooting}
-	>
-		<img src={`/images/${src}`} class="w-28 h-24" alt={type} />
-	</button>
-{/if}
+<button
+	style="position: absolute; user-select: none;"
+	class="animal-container custom-cursor"
+	style:left={animal.left}
+	style:top={animal.top}
+	on:click={onClick}
+>
+	<img src={`/images/${animal.src}`} class="w-28 h-24" alt={animal.type} />
+</button>
 
 <style>
 	.animal-container {

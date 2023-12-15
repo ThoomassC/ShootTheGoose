@@ -1,9 +1,10 @@
 <script lang="ts">
+	import Background from '$lib/components/Background.svelte';
 	import '../app.css';
 </script>
 
 <title>Shoot The Goose</title>
 
-<div class="bg-ground-pattern h-screen bg-cover bg-center">
+<Background>
 	<slot />
-</div>
+</Background>

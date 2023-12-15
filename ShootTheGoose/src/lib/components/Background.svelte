@@ -1,6 +1,7 @@
 <script lang="ts">
-	export let baseNameForUrl: string;
+	export let baseNameForUrl: string = 'bg1.png';
 </script>
 
-<img src="/images/{baseNameForUrl}" alt="" />
+<img class="absolute h-screen w-screen object-cover -z-10" src="/images/{baseNameForUrl}" alt="" />
+
 <slot />
