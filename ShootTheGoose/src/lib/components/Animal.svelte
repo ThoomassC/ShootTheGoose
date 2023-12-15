@@ -15,10 +15,14 @@
 	function handleShoot() {
 		isShooting = true;
 		audio.play();
+		score += pointIncrement;
 		setTimeout(() => {
 			randomPosition = getRandomPosition();
 			updateButtonStyle();
 		}, 1000);
+
+		switchTheme();
+		isFinish = !isFinish;
 	}
 
 	function getRandomPosition() {
@@ -72,6 +76,6 @@
 
 	.custom-cursor {
 		cursor: crosshair;
-    	/* cursor: url('/images/viseur.cur'), auto; */
-  }
+		/* cursor: url('/images/viseur.cur'), auto; */
+	}
 </style>
