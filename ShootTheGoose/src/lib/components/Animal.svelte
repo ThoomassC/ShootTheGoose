@@ -31,15 +31,6 @@
 		});
 	}
 
-	// function handleMouseMove(event: any) {
-	// 	const isMouseOverAnimal = event.target && event.target.closest('.animal-container') !== null;
-
-	// 	if (!isMouseOverAnimal) {
-	// 		randomPosition = { x: event.clientX, y: event.clientY };
-	// 		updateButtonStyle();
-	// 	}
-	// }
-
 	// TODO: Déplacer l'oie aléatoirement toutes les 2 secondes (et augmente en fonction du score)
 	setInterval(() => {
 		randomPosition = getRandomPosition();
@@ -67,6 +58,5 @@
 
 	.custom-cursor {
 		cursor: crosshair;
-		/* cursor: url('/images/viseur.cur'), auto; */
 	}
 </style>

@@ -15,17 +15,24 @@
 	let currentBg: string = bgGoose;
 	let isFinish: boolean;
 	let hearts: number;
-	let score: number = 900;
+	let score: number = 0;
 	let id: number = 4;
 	let isMissed: boolean = false;
+
+	function leaveGame() {
+		const confirmation = confirm('Abandonner la partie ?(vous perdrez votre partie à tout jamais)');
+		if (confirmation) {
+			window.location.href = '../';
+		}
+	}
 
 	function onAGooseDie(event) {
 		const diyingAnimal = event.detail.animal;
 		animals = animals.filter((a) => a !== diyingAnimal);
 
-		// score += pointIncrement;
+		score += pointIncrement;
 
-		// switchThemeIfScoreAboveThreshold();
+		score > 2000 ? switchThemeIfScoreAboveThreshold() : '';
 	}
 
 	function switchThemeIfScoreAboveThreshold() {
@@ -35,18 +42,6 @@
 			currentBg = bgUfo;
 		}
 	}
-
-	let canardType = {
-		type: 'canard',
-		score: 1,
-		src: currentMonster
-	};
-
-	let ufoType = {
-		type: 'ufo',
-		score: 3,
-		src: currentBg
-	};
 
 	let animals = [
 		{ type: 'canard', score: 1, src: currentMonster, id: 1, left: 0, top: 0 },
@@ -63,20 +58,16 @@
 <div class="h-screen">
 	<div class="flex justify-screen w-full items-center justify-between">
 		<button
-			on:click={() => {
-				if (window.document.body.classList.contains('dark-mode')) {
-					window.document.body.classList.toggle('dark-mode');
-					currentMonster = imgGoose;
-					currentBg = bgGoose;
-				}
-			}}
-			class="ml-4 align-middle select-none font-sans font-medium text-center uppercase transition-all
-			disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-full max-w-[150px] h-10
-			max-h-[90px] rounded-lg text-xs bg-gray-900 text-white"
+			on:click={leaveGame}
+			class="ml-4 align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-full max-w-[150px] h-10 max-h-[90px] rounded-lg text-xs bg-gray-900 text-white shadow-m"
 		>
 			{'<- -  '} Quitter la partie
 		</button>
-		<h1 style="font-size: 60px; font-weight: bold;">Shoot The Goose</h1>
+		<h1
+			style="font-size: 60px; font-weight: bold; color: white; text-shadow: -6px 0 black, 0 0px black, 0px 0 black, 0 2px black;"
+		>
+			Shoot The Goose
+		</h1>
 		<Life bind:actualLifes={hearts} {isMissed}></Life>
 		<Score bind:actualScore={score}></Score>
 	</div>
@@ -89,3 +80,9 @@
 		<FormPlayer name="test" bind:point={score} {isFinish} />
 	{/if}
 </div>
+
+<style>
+	:global(body) {
+		cursor: crosshair;
+	}
+</style>

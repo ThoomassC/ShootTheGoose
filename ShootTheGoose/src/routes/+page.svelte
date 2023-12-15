@@ -1,5 +1,10 @@
 <div class="flex flex-col h-screen">
-	<h1 class="text-center" style="font-size: 90px; font-weight: bold;">Shoot The Goose</h1>
+	<h1
+		class="text-center"
+		style="font-size: 90px; font-weight: bold; color: white; text-shadow: -6px 0 black, 0 0px black, 0px 0 black, 0 2px black;"
+	>
+		Shoot The Goose
+	</h1>
 
 	<div class="flex items-center justify-center grow">
 		<a
@@ -11,10 +16,3 @@
 		</a>
 	</div>
 </div>
-
-<style>
-	:global(body) {
-		/* cursor: url('images/target.cur'), default; */
-		cursor: crosshair;
-	}
-</style>
