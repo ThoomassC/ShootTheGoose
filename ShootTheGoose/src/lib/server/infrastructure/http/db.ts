@@ -1,4 +1,5 @@
 import mariadb from 'mariadb';
+import type { IPlayer } from '$lib/domain/model/iplayer';
 
 export const pool = mariadb.createPool({
 	host: '82.165.237.163',

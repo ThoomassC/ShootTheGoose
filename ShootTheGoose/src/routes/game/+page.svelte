@@ -3,12 +3,12 @@
 	import Life from '$lib/components/Life.svelte';
 	import FormPlayer from '$lib/components/FormPlayer.svelte';
 	import Score from '$lib/components/Score.svelte';
-	import { isVeganMod } from '../store';
+	import { isVeganMod, scoreTheme, scoreThemeThreshold } from '../store';
 
 	const imgUfo = 'ufo.png';
 	const bgGoose = 'bg1.png';
 	const bgUfo = 'bg2.jpeg';
-	const themeThreshold: number = 1000;
+	const themeThreshold: number = 999;
 	const pointIncrement: number = 100;
 
 	let currentMonster: string;
@@ -20,7 +20,8 @@
 	let id: number = 4;
 	let isMissed: boolean = false;
 	let isVeganMod_value;
-
+	$scoreTheme = score;
+	$scoreThemeThreshold = themeThreshold;
 	isVeganMod.subscribe((value) => {
 		isVeganMod_value = value;
 	});
@@ -45,7 +46,7 @@
 		animals = animals.filter((a) => a !== diyingAnimal);
 
 		score += pointIncrement;
-
+		$scoreTheme = score;
 		switchThemeIfScoreAboveThreshold();
 	}
 
