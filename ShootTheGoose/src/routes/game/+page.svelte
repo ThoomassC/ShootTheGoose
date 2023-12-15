@@ -8,7 +8,7 @@
 	const imgUfo = 'ufo.png';
 	const bgGoose = 'bg1.png';
 	const bgUfo = 'bg2.jpeg';
-	const themeThreshold: number = 10;
+	const themeThreshold: number = 1000;
 	const pointIncrement: number = 100;
 
 	let currentMonster: string;
@@ -47,7 +47,7 @@
 
 		score += pointIncrement;
 
-		score > 2000 ? switchThemeIfScoreAboveThreshold() : '';
+		switchThemeIfScoreAboveThreshold();
 	}
 
 	function switchThemeIfScoreAboveThreshold() {
@@ -75,7 +75,7 @@
 	<div class="flex justify-screen w-full items-center justify-between">
 		<button
 			on:click={leaveGame}
-			class="ml-4 align-middle select-none font-sans font-medium text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none w-full max-w-[150px] h-10 max-h-[90px] rounded-lg text-xs bg-gray-900 text-white shadow-m"
+			class="ml-4 align-middle select-none font-medium text-center uppercase disabled:opacity-50 disabled:pointer-events-none w-full max-w-[150px] h-10 max-h-[90px] rounded-lg text-xs bg-gray-900 text-white shadow-m"
 		>
 			{'<- -  '} Quitter la partie
 		</button>
