@@ -3,4 +3,4 @@
 	$: actualScore;
 </script>
 
-<h1 class="text-2xl font-normal text-white">{actualScore}</h1>
+<h1 class="text-2xl font-normal text-white p-3">{actualScore}</h1>

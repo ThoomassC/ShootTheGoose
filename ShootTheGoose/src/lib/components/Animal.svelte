@@ -16,7 +16,7 @@
 	animal.left = randomPosition.x + 'px';
 	animal.top = randomPosition.y + 'px';
 
-	const audio = new Audio('/sounds/'+ animal.typeSound +'.mp3');
+	const audio = new Audio('/sounds/' + animal.typeSound + '.mp3');
 
 	function getRandomPosition() {
 		const positionX = Math.floor(Math.random() * (window.innerWidth - 100));
@@ -37,7 +37,7 @@
 		randomPosition = getRandomPosition();
 		animal.left = randomPosition.x + 'px';
 		animal.top = randomPosition.y + 'px';
-	}, 1500);
+	}, 1777);
 </script>
 
 <button

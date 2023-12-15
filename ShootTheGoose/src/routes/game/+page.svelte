@@ -25,13 +25,12 @@
 		isVeganMod_value = value;
 	});
 
-	if (isVeganMod_value === false){
-		currentMonster = "oie_vol.png";
-		currentSound = "oie";
-	}
-	else{
-		currentMonster = "elmer.png";
-		currentSound = "elmer";
+	if (isVeganMod_value === false) {
+		currentMonster = 'oie_vol.png';
+		currentSound = 'oie';
+	} else {
+		currentMonster = 'elmer.png';
+		currentSound = 'elmer';
 	}
 
 	function leaveGame() {
@@ -59,19 +58,50 @@
 	}
 
 	let animals = [
-		{ type: 'canard', score: 1, src: currentMonster, id: 1, left: 0, top: 0, typeSound: currentSound },
-		{ type: 'canard', score: 1, src: currentMonster, id: 2, left: 0, top: 0, typeSound: currentSound },
-		{ type: 'canard', score: 1, src: currentMonster, id: 3, left: 0, top: 0, typeSound: currentSound }
+		{
+			type: 'canard',
+			score: 1,
+			src: currentMonster,
+			id: 1,
+			left: 0,
+			top: 0,
+			typeSound: currentSound
+		},
+		{
+			type: 'canard',
+			score: 1,
+			src: currentMonster,
+			id: 2,
+			left: 0,
+			top: 0,
+			typeSound: currentSound
+		},
+		{
+			type: 'canard',
+			score: 1,
+			src: currentMonster,
+			id: 3,
+			left: 0,
+			top: 0,
+			typeSound: currentSound
+		}
 	];
 
 	setInterval(() => {
-		animals.push({ type: 'canard', score: 1, src: currentMonster, id: id++, left: 0, top: 0, typeSound: currentSound });
+		animals.push({
+			type: 'canard',
+			score: 1,
+			src: currentMonster,
+			id: id++,
+			left: 0,
+			top: 0,
+			typeSound: currentSound
+		});
 		animals = animals;
-	}, 3000);
-
+	}, 1000);
 </script>
 
-<div class="h-screen">
+<div class="h-screen user-select: none">
 	<div class="flex justify-screen w-full items-center justify-between">
 		<button
 			on:click={leaveGame}
@@ -80,7 +110,7 @@
 			{'<- -  '} Quitter la partie
 		</button>
 		<h1
-			style="font-size: 60px; font-weight: bold; color: white; text-shadow: -6px 0 black, 0 0px black, 0px 0 black, 0 2px black;"
+			style="font-size: 60px; font-weight: bold; color: white; text-shadow: -6px 0 black, 0 0px black, 0px 0 black, 0 2px black; user-select: none"
 		>
 			Shoot The Goose
 		</h1>
