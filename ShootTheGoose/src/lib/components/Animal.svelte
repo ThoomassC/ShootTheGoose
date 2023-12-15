@@ -7,6 +7,7 @@
 		score: number;
 		left: number;
 		top: number;
+		typeSound: string;
 	};
 
 	const dispatch = createEventDispatcher();
@@ -15,7 +16,7 @@
 	animal.left = randomPosition.x + 'px';
 	animal.top = randomPosition.y + 'px';
 
-	const audio = new Audio('/sounds/oie.mp3');
+	const audio = new Audio('/sounds/'+ animal.typeSound +'.mp3');
 
 	function getRandomPosition() {
 		const positionX = Math.floor(Math.random() * (window.innerWidth - 100));

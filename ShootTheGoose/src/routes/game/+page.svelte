@@ -3,21 +3,36 @@
 	import Life from '$lib/components/Life.svelte';
 	import FormPlayer from '$lib/components/FormPlayer.svelte';
 	import Score from '$lib/components/Score.svelte';
+	import { isVeganMod } from '../store';
 
-	const imgGoose = 'oie_vol.png';
 	const imgUfo = 'ufo.png';
 	const bgGoose = 'bg1.png';
 	const bgUfo = 'bg2.jpeg';
 	const themeThreshold: number = 10;
 	const pointIncrement: number = 100;
 
-	let currentMonster: string = imgGoose;
+	let currentMonster: string;
+	let currentSound: string;
 	let currentBg: string = bgGoose;
 	let isFinish: boolean;
 	let hearts: number;
 	let score: number = 0;
 	let id: number = 4;
 	let isMissed: boolean = false;
+	let isVeganMod_value;
+
+	isVeganMod.subscribe((value) => {
+		isVeganMod_value = value;
+	});
+
+	if (isVeganMod_value === false){
+		currentMonster = "oie_vol.png";
+		currentSound = "oie";
+	}
+	else{
+		currentMonster = "elmer.png";
+		currentSound = "elmer";
+	}
 
 	function leaveGame() {
 		const confirmation = confirm('Abandonner la partie ?(vous perdrez votre partie à tout jamais)');
@@ -44,15 +59,16 @@
 	}
 
 	let animals = [
-		{ type: 'canard', score: 1, src: currentMonster, id: 1, left: 0, top: 0 },
-		{ type: 'canard', score: 1, src: currentMonster, id: 2, left: 0, top: 0 },
-		{ type: 'canard', score: 1, src: currentMonster, id: 3, left: 0, top: 0 }
+		{ type: 'canard', score: 1, src: currentMonster, id: 1, left: 0, top: 0, typeSound: currentSound },
+		{ type: 'canard', score: 1, src: currentMonster, id: 2, left: 0, top: 0, typeSound: currentSound },
+		{ type: 'canard', score: 1, src: currentMonster, id: 3, left: 0, top: 0, typeSound: currentSound }
 	];
 
 	setInterval(() => {
-		animals.push({ type: 'canard', score: 1, src: currentMonster, id: id++, left: 0, top: 0 });
+		animals.push({ type: 'canard', score: 1, src: currentMonster, id: id++, left: 0, top: 0, typeSound: currentSound });
 		animals = animals;
 	}, 3000);
+
 </script>
 
 <div class="h-screen">
